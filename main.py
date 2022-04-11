@@ -15,7 +15,7 @@ C. View a specific password                 D. Update a password
 # Master Password Verification #
 master_password = bytes(input("Enter the master password: "), 'utf-8')
 try:
-    with open("sample1.txt", "r") as file1:
+    with open("key.txt", "r") as file1:
         reader = file1.readline()
 
         hash1 = hashlib.md5()
