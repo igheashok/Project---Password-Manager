@@ -16,8 +16,8 @@ Libraries Included:
 2. hashlib
 
 Quick Description:
-A classic password manager made by me from scratch. Will keep polishing the code and improving the design.
-More features to come.
-Hope you like it.
+* A classic password manager made by me from scratch. Will keep polishing the code and improving the design.
+* More features to come.
 
+Hope you like it.
 Thank you.
