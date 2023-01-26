@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Notes
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    {% if notes %}
+        <h1>Notes</h1><br><br>
+        {% for note in notes %}
+            <div>
+                <div class="displaycomment"><h5>{{ note["title"] }}</h5></div><br>
+
+                <textarea name="viewnotes" id="viewnotes" class="viewnotes green_bg forms" readonly>{{ note["note"] }}</textarea><br><br>
+                <script>
+                    const myNote = document.getElementById("viewnotes");
+                    myNote.style.cssText = `height: ${myNote.scrollHeight}px; overflow-y: hidden`;
+                    myNote.addEventListener("input", function(){
+                        this.style.height = "auto";
+                        this.style.height = `${this.scrollHeight}px`;
+                    });
+                </script>
+
+
+
+                <form action="/deletenote" method="post">
+                    <input value="{{ note["id"] }}" name="id" type="hidden">
+                    <button class="btn green_button padding" type="submit">Delete</button><button class="btn green_button" form="updatenote" type="submit">Edit</button>
+                </form>
+
+                <form action="/updatenote" id="updatenote" method="get">
+                    <input value="{{ note["id"] }}" name="id" type="hidden">
+                    <input value="{{ note["title"] }}" name="title" type="hidden">
+                    <input value="{{ note["note"] }}" name="note" type="hidden">
+
+                </form>
+            </div><br><br><br><br><br><br>
+        {% endfor %}
+    {% else %}
+        <h1 class="green">No Notes Saved</h1><br>
+        <img src="/static/empty.png" alt="Empty"><br><br><br><br><br><br>
+    {% endif %}
+</div>
+{% endblock %}

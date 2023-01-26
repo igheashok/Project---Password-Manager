@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update Note
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Edit Note</h1><br><br>
+
+    <div class="mb-3">
+            <form action="/updatenote" method="post">
+                <h4>TITLE:</h4><input value="{{ title }}" name="new_title" class="displaycomment" type="text"><br><br>
+                <h4>NOTE:</h4><textarea name="new_note" id="new_note" class="viewnotes green_bg forms" required placeholder="Add a note">{{ note }}</textarea><br><br>
+                <script>
+                const myNote = document.getElementById("new_note");
+                myNote.style.cssText = `height: ${myNote.scrollHeight}px; overflow-y: hidden`;
+                myNote.addEventListener("input", function(){
+                    this.style.height = "auto";
+                    this.style.height = `${this.scrollHeight}px`;
+                });
+            </script>
+
+
+
+
+                <input value="{{ id }}" name="id" type="hidden">
+                <button class="btn green_button" type="submit">Update</button>
+            </form>
+        </h4><br>
+    </div>
+</div>
+{% endblock %}

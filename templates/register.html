@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class="topbottompadding">
+    <form action="/register" method="post">
+        <h1>Register</h1><br><br>
+        <h5><b class="green">Enter Personal Details</b></h5>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="first_name" placeholder="First Name" type="text" required>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="last_name" placeholder="Last Name" type="text" required>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="age" placeholder="Age" type="number" max="120" min="10" required>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="email" placeholder="Email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="mobile_number" placeholder="Mobile Number" type="text" pattern="(?=.*[0-9]).{7,15}" title="Min: 8, Max: 15 digits" required>
+        </div><br><br>
+
+        <h5><b class="green">Enter Account Details</b></h5>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password" required pattern="(?=.*\d)(?=.*[A-Za-z]).{7,}">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm Password" type="password" required pattern="(?=.*\d)(?=.*[A-Za-z]).{7,}">
+        </div>
+        <div class="form-group">
+            <h5><b>Conditions for a strong password:</b><br></h5>
+            <i>1. Password length must be at least 7 characters</i><br>
+            <i>2. Password must have at least 1 digits</i><br>
+            <i>3. Password must have at lest 1 special characters</i><br>
+        </div><br><br>
+
+        <div class="mb-3">
+            <h5><b class="green">Enter Security Details</b></h5>
+            <select name="security_question">
+                <option class="form-control mx-auto w-auto" value="Select A Security Question" disabled selected  required>Select A Security Question</option>
+                {% for question in SECURITY_QUESTIONS %}
+                    <option value="{{ question }}">{{ question }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" autocomplete="off" name="security_answer" placeholder="Enter Security Answer" type="text" required>
+        </div>
+        <button class="btn green_button" type="submit">Register</button>
+    </form><br><br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Card
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Add Card</h1><br><br>
+
+    <form action="/addcard" method="post">
+        <div class="mb-3">
+            <input id="title" placeholder="Title" name="title" type="text" required autocomplete="off" class="forms green_bg mx-auto">
+        </div>
+
+        <div class="mb-3">
+            <select name="card_type" class="forms green_bg">
+                <option class="forms mx-auto w-auto" value="Select Your Card Type" required disabled selected >Select Your Card Type</option>
+                {% for type in CARD_TYPES %}
+                    <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <input id="card_number" placeholder="Card Number" name="card_number" type="text" pattern="(?=.*[0-9]).{16,16}" title="Enter 16 digit card number" required autocomplete="off" class="forms green_bg mx-auto">
+        </div>
+        <div class="mb-3">
+            <input id="card_holder" placeholder="Card Holder" name="card_holder" type="text" required autocomplete="off" class="forms green_bg mx-auto">
+        </div>
+        <div class="mb-3">
+            <input id="cvv" placeholder="CVV" name="cvv" type="text" required autocomplete="off" pattern="(?=.*[0-9]).{3,3}" title="Enter 3 digit CVV number" class="forms green_bg mx-auto">
+        </div>
+        <div class="mb-3">
+            <input id="card_comment" placeholder="Comment" name="card_comment" type="text" autocomplete="off" class="forms green_bg mx-auto">
+        </div>
+        <button class="green_button" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

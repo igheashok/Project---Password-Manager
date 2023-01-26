@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Update Card
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Edit Card</h1><br><br>
+
+    <div class="mb-3">
+            <form action="/updatecard" method="post">
+                <h4>PLATFORM:</h4><input value="{{ title }}" name="new_title" required autocomplete="off" type="text" class="forms green_bg mx-auto"><br><br>
+                <h4>CARD TYPE:</h4><select name="new_card_type" class="forms green_bg">
+                    <option class="forms mx-auto w-auto" value="{{ card_type }}" selected >{{ card_type }}</option>
+                    {% for type in CARD_TYPES %}
+                        <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <h4>CARD NUMBER:</h4><input value="{{ card_number }}" name="new_card_number" type="text" pattern="(?=.*[0-9]).{16,16}" title="Enter 16 digit card number" required autocomplete="off" class="forms green_bg mx-auto"><br><br>
+                <h4>CVV:</h4><input value="{{ cvv }}" name="new_cvv" type="text" required autocomplete="off" pattern="(?=.*[0-9]).{3,3}" title="Enter 3 digit CVV number" class="forms green_bg mx-auto"><br><br>
+                <h4>HOLDER:</h4><input value="{{ card_holder }}" name="new_card_holder" type="text" required autocomplete="off" class="forms green_bg mx-auto"><br><br>
+                <h4>COMMENT:</h4><input value="{{ card_comment }}" name="new_card_comment" type="text" autocomplete="off" class="forms green_bg mx-auto"><br><br>
+
+                <input value="{{ id }}" name="id" type="hidden">
+                <button class="btn green_button" type="submit">Update</button>
+            </form>
+        </h4><br>
+    </div>
+</div>
+
+{% endblock %}

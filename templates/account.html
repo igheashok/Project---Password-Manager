@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Hello, {{ user }}</h1><br><br><br>
+    <div class="displaycomment">
+        <h4>Change Account Password</h4>
+        <form action="/changepassword" method="get">
+            <button class="btn green_button" type="submit">Change</button>
+        </form>
+    </div><br><br><br>
+    <div class="displaycomment">
+        <h4>Delete Account Permanently</h4>
+        <form action="/deleteaccount" method="get">
+            <button class="btn green_button" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

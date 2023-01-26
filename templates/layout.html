@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/key.png" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+        <title>PM: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-md navigationBar fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <span class="green"><img src="/static/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-middle">
+                    Password Manager</span>
+                </a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbar">
+                    {% if session["user_id"] %}
+                        <ul class="navbar-nav me-auto mt-2 ">
+                            <li class="nav-item ">
+                                <div class="btn-group dropdown padding ">
+                                    <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        PASSWORDS
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="/addpassword">Add A Password</a></li>
+                                        <li><a class="dropdown-item" href="/viewpasswords">View Passwords</a></li>
+                                        <li><a class="dropdown-item" href="/weakpasswords">View Weak Passwords</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-group dropdown padding">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        CARDS
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="/addcard">Add A Card</a></li>
+                                        <li><a class="dropdown-item" href="/viewcards">View Cards</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="btn-group dropdown padding">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        NOTES
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="/addnote">Add A Note</a></li>
+                                        <li><a class="dropdown-item" href="/viewnotes">View Notes</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item">
+                                <div class="btn-group dropstart padding">
+                                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ session["user_id"] }}
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                    <li><a class="dropdown-item" href="/account">Account</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/logout"><b>Log Out</b></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item padding"><a class="nav-link white" id="dropdownMenuButton1" href="/register">Register</a></li>
+                            <li class="nav-item padding"><a class="nav-link white" id="dropdownMenuButton1" href="/login">Log In</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        {% if session["user_id"] %}
+            <ul class="mynavigation">
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/">Home</a></li>
+                <li class="mynavigationlist top_border"><a class="disabled-link green" href="/addpassword"><b>PASSWORDS</b></a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/addpassword">Add A Password</a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/viewpasswords">View Passwords</a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/weakpasswords">View Weak Passwords</a></li>
+                <li class="mynavigationlist top_border"><a class="disabled-link green" href="/addcard"><b>CARDS</b></a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/addcard">Add A Card</a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/viewcards">View Cards</a></li>
+                <li class="mynavigationlist top_border"><a class="disabled-link green" href="/addnote"><b>NOTES</b></a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/addnote">Add A Note</a></li>
+                <li class="mynavigationlist"><a class="hovering whitetext" href="/viewnotes">View Notes</a></li>
+            </ul>
+        {% endif %}
+
+
+
+
+
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert green_bg dark_green mb-0 text-center" role="alert">
+                    <b>{{ get_flashed_messages() | join(" ") }}</b>
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container-fluid py-5 text-center">
+            {% block main %}{% endblock %}
+        </main>
+
+        {% if session["user_id"] %}
+            <footer class="center mb-5 small text-center text-muted">
+                &#169 Copyright 2022-23 By Ashok Ighe. All Rights Reserved.
+            </footer>
+        {% else %}
+            <footer class="mb-5 small text-center text-muted">
+                &#169 Copyright 2022-23 By Ashok Ighe. All Rights Reserved.
+            </footer>
+        {% endif %}
+
+    </body>
+
+</html>

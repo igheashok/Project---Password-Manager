@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Note
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Add Note</h1><br><br>
+    <form action="/addnote" method="post">
+        <div class="mb-3">
+            <input id="note_title" placeholder="Title" name="title" type="text" required autocomplete="off" class="forms mx-auto w-auto green_bg">
+        </div>
+
+        <div class="mb-3 mx-auto w-auto">
+            <textarea name="note" id="note" required autocomplete="off" class="padding green_bg forms" placeholder="Add a note" cols="100" rows="20"></textarea>
+            <script>
+                const myNote = document.getElementById("note");
+                myNote.style.cssText = `height: ${myNote.scrollHeight}px; overflow-y: hidden`;
+                myNote.addEventListener("input", function(){
+                    this.style.height = "auto";
+                    this.style.height = `${this.scrollHeight}px`;
+                });
+            </script>
+        </div>
+
+        <button class="green_button" type="submit">Add</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="column1">
+        <h1>Welcome, {{ session["first_name"] }}</h1><br><br>
+        <div class="displayprofile">
+            <h4><table class="tablebody" style="width:80%">
+                <tr align="left" class="history">
+                    <td class="tablebody ">Passwords Saved:</td>
+                    <td style="width:10%">{{ passwords_data }}</td>
+                </tr class="history">
+                <tr align="left" class="history">
+                    <td class="tablebody">Cards Saved:</td>
+                    <td>{{ cards_data }}</td>
+                </tr>
+                <tr align="left" class="history">
+                    <td class="tablebody">Notes Saved:</td>
+                    <td>{{ notes_data }}</td>
+                </tr>
+            </table></h4>
+        </div>
+    </div>
+{% endblock %}

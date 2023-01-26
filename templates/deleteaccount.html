@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Account
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    {% if session["user_id"] %}
+        <h1>Hello, {{ session["first_name"] }}</h1><br><br>
+
+        <div><h2>Learn what deleting your account means</h2></div>
+        <div><h6>
+            1. Your all transaction and registration records will be permanently removed.<br>
+            2. You can't re-download/re-install the content and programs you purchased anymore.<br>
+            3. You won't be able to use Reallusion services where you sign in with that account, like Reallusion Hub, Smart Gallery, Marketplace, Actor Core.<br>
+            4. After your account is deleted, you can't sign up again with the same username or add that username to another account.<br>
+            5. If you change your mind, you might not be able to recover it.<br>
+        </h6></div><br>
+
+
+        <form action="/deleteaccount" method="post">
+            <h4>Reason for account deletion:</h4>
+            <input class="mx-auto w-auto" name="reason" value="Created a second account" type="radio" required> Created a second account<br>
+            <input class="mx-auto w-auto" name="reason" value="Privacy concerns" type="radio" required> Privacy concerns<br>
+            <input class="mx-auto w-auto" name="reason" value="Account compromised" type="radio" required> Account compromised<br>
+            <input class="mx-auto w-auto" name="reason" value="Website too complicated to handle" type="radio" required> Website too complicated to handle<br>
+            <input class="mx-auto w-auto" name="reason" value="No longer require our services" type="radio" required> No longer require our services<br>
+            <input class="mx-auto w-auto" name="reason" value="Other reason" type="radio" required> Other reason<br><br>
+
+            <h4>Please Enter your Password to Confirm the Deletion</h4>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" name="password" placeholder="Enter Password" type="password" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Delete Account</button>
+        </form><br>
+    {% else %}
+    <h4>Account Deleted!</h4>
+    <h6>We are sorry to let you go. Hope to serve you again soon.</h6>
+    <img src="/static/sorry.jpg" alt="Sorry">
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,373 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+.blue
+{
+    color: #044750;
+}
+.white
+{
+    color: #ffffff;
+}
+.dark_green
+{
+    color: #044A42;
+}
+.green
+{
+    color: #B8E1DD;
+}
+
+/* Navigation Bar */
+.navbar
+{
+    background-color: #044A42;
+    /* background-image: linear-gradient(to right, #093028, #237A57);*/
+    background-image: linear-gradient(to right, #093028, #237A57);
+    color: #ffffff;
+}
+
+/* Background Color & Font */
+body {
+    background-color: #001816;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+
+.tablebody
+{
+    padding: 0.5cm;
+    outline: none;
+    margin: auto;
+}
+
+.history:hover
+{
+    background-color: #001816;
+}
+
+.padding
+{
+    padding: 0.5cm;
+}
+
+.verticalalign
+{
+    vertical-align: middle;
+}
+
+/* Navigation Buttons */
+#dropdownMenuButton1
+{
+    background-color: rgb(4, 74, 66, 0);
+    color: #ffffff;
+    font-size: 20px;
+}
+
+#dropdownMenuButton1:hover
+{
+    background-color: #05665B;
+}
+
+.dropdown-menu
+{
+    background-color: #E5F3F1;
+}
+
+.dropdown-item:hover
+{
+    background-color: #B8E1DD;
+}
+
+#note
+{
+    border-radius: 15px;
+}
+
+/* Green Background */
+.green_bg
+{
+    background-color: #B8E1DD;
+}
+
+/* Forms */
+.forms
+{
+    border-radius: 7px;
+    border-style: solid;
+    border-width: medium;
+    border-color: #001816;
+    padding: 5px;
+    width: 7cm;
+}
+
+.forms:hover
+{
+    border-style: solid;
+    border-width: medium;
+    border-color: #4ddbff;
+}
+
+#note
+{
+    width: auto;
+}
+
+/* Green Buttons */
+.green_button
+{
+    background-color: #05685D;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: auto;
+    margin: 5px;
+}
+
+.green_button:hover
+{
+    background-color: #078778;
+}
+
+/* Navigation Side-Bar */
+.mynavigation
+{
+    list-style-type: none;
+    margin: 0;
+    padding-top: 3cm;
+    padding-left: 0%;
+    width: 15%;
+    background-color: rgb(7, 95, 85, 0.3);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.mynavigationlist a
+{
+    display: block;
+
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+.hovering:hover
+{
+    background-color: #001816;
+    color: white;
+}
+
+.mynavigationlist.a:active
+{
+    background-color: #078778;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.disabled-link {
+    pointer-events: none;
+}
+
+.top_border {
+    border-top-style: solid;
+    border-width: 2px;
+    border-color: #001816;
+}
+
+.whitetext {
+    color: white;
+}
+
+.column1 {
+    width: 85%;
+    float: right;
+    padding-top: 3cm;
+    padding-bottom: 3cm;
+}
+
+.center {
+    clear: both;
+    width: 85%;
+    float: right;
+}
+
+.topbottompadding {
+    padding-top: 3cm;
+    padding-bottom: 3cm;
+}
+
+.justfloatright {
+    float: right;
+    margin: auto;
+}
+
+.justfloatleft {
+    float: left;
+    margin: auto;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.staticposition {
+    position: static;
+
+}
+
+/* Box With Light-Green Background */
+.displaycomment {
+    background-color: rgb(184, 225, 221, 0.5);
+    width: 25%;
+    margin: auto;
+    padding: 0.3cm;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Box For Profile Display */
+.displayprofile {
+    background-color: rgb(184, 225, 221, 0.5);
+    width: 45%;
+    margin: auto;
+    padding: 0.3cm;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Box For Viewing Notes */
+.viewnotes {
+    background-color: rgb(184, 225, 221, 0.5);
+    width: 50%;
+    margin: auto;
+    padding: 0.3cm;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Dexter's Image */
+#error {
+    opacity: 0.7;
+}
+
+/* Flash Message */
+.alert {
+    margin-top: 3cm;
+    position: fixed;
+    display: block;
+    width: 100%;
+}
+
+/* Cards */
+.container {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: white;
+}
+
+.card {
+    width: 500px;
+    height: 250px;
+
+    background: linear-gradient(to top right, rgb(11, 63, 87), rgb(78, 68, 68));
+    box-shadow: 10px 10px 20px rgb(82, 81, 81);
+    border-radius: 10px;
+    padding: 1em;
+    z-index: 2;
+}
+
+.card .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head1 {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.head2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.head3 {
+    position: absolute;
+    bottom: -35px;
+    left: 30px;
+    font-size: 160px;
+    text-transform: uppercase;
+    color: rgb(104, 101, 101);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.card .mid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.card .mid .card-number span {
+    border: 1px solid grey;
+    padding: 3px 5px;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+
+.card-number span+span {
+    margin: 8px 15px;
+}
+
+.card .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.card .bottom span {
+    display: inline-block;
+    border: 1px solid grey;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 14px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.card .bottom .card-holder span {
+    width: 150px;
+    height: 22px;
+}
+
+.bottom span+span {
+    margin-left: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

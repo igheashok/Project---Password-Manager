@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Cards
+{% endblock %}
+
+{% block main %}
+<div class="column1 staticposition">
+    {% if cards %}
+        <h1>Cards</h1><br><br>
+        {% for i in range(length) %}
+            <div class="staticposition">
+                <div class="container staticposition">
+                    <div class="card staticposition">
+
+                        <div class="top">
+                            <h1 class="head1"><i>{{ cards[i]["card_type"] }}</i></h1>
+                            <h2 class="head2">{{ cards[i]["title"] }}</h2>
+                        </div>
+
+                        <div class="mid">
+                            <h2 class="head2">Card Number</h2>
+                            <div class="card-number">
+                                <span>{{ cardNumbers[i][0] }}{{ cardNumbers[i][1] }}{{ cardNumbers[i][2] }}{{ cardNumbers[i][3] }}</span>
+                                <span>{{ cardNumbers[i][4] }}{{ cardNumbers[i][5] }}{{ cardNumbers[i][6] }}{{ cardNumbers[i][7] }}</span>
+                                <span>{{ cardNumbers[i][8] }}{{ cardNumbers[i][9] }}{{ cardNumbers[i][10] }}{{ cardNumbers[i][11] }}</span>
+                                <span>{{ cardNumbers[i][12] }}{{ cardNumbers[i][13] }}{{ cardNumbers[i][14] }}{{ cardNumbers[i][15] }}</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="card-holder">
+                                <h2 class="head2">Card Holder</h2>
+                                <span>{{ cards[i]["card_holder"] }}</span>
+                            </div>
+                            <div hidden class="express">
+                                <h2 class="head2">express</h2>
+                                <span>04</span> /
+                                <span>18</span>
+                            </div>
+                            <div class="cvv">
+                                <h2 class="head2">CVV</h2>
+                                <span>{{ cvv[i][0] }}</span>
+                                <span>{{ cvv[i][1] }}</span>
+                                <span>{{ cvv[i][2] }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                {% if cards[i]["card_comment"] %}
+                    <div class="clearfloat staticposition displaycomment">Card Comment:     {{ cards[i]["card_comment"] }}</div>
+                {% endif %}
+
+
+                <div class="">
+                <form action="/deletecard" method="post">
+                    <input value="{{ cards[i]["id"] }}" name="id" type="hidden">
+                    <button class="btn green_button padding" type="submit">Delete</button><button class="btn green_button" form="updatecard" type="submit">Edit</button>
+                </form>
+                <form action="/updatecard" id="updatecard" method="get">
+                    <input value="{{ cards[i]["id"] }}" name="id" type="hidden">
+                    <input value="{{ cards[i]["title"] }}" name="title" type="hidden">
+                    <input value="{{ cards[i]["card_type"] }}" name="card_type" type="hidden">
+                    <input value="{{ cards[i]["card_number"] }}" name="card_number" type="hidden">
+                    <input value="{{ cards[i]["card_holder"] }}" name="card_holder" type="hidden">
+                    <input value="{{ cards[i]["cvv"] }}" name="cvv" type="hidden">
+                    <input value="{{ cards[i]["card_comment"] }}" name="card_comment" type="hidden">
+                </form>
+                </div><br><br><br><br>
+            </div><br><br>
+        {% endfor %}
+
+    {% else %}
+        <h1 class="green">No Cards Saved</h1><br>
+        <img src="/static/empty.png" alt="Empty"><br><br><br><br><br><br>
+    {% endif %}
+</div>
+{% endblock %}

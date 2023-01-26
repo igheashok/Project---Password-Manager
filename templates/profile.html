@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+<div class="column1">
+    <h1>Profile</h1><br><br>
+    <div class="displayprofile">
+        <h4><table class="tablebody" style="width:80%; text-align: left">
+            <tr class="history">
+                <td class="tablebody">First Name:</td>
+                <td style="width:50%">{{ users_data[0]["first_name"] }}</td>
+            </tr>
+            <tr class="history">
+                <td class="tablebody">Last Name:</td>
+                <td>{{ users_data[0]["last_name"] }}</td>
+            </tr>
+            <tr class="history">
+                <td class="tablebody">Username:</td>
+                <td>{{ users_data[0]["username"] }}</td>
+            </tr>
+            <tr class="history">
+                <td class="tablebody">Age:</td>
+                <td>{{ users_data[0]["age"] }}</td>
+            </tr>
+            <tr class="history">
+                <td class="tablebody">Email:</td>
+                <td>{{ users_data[0]["email"] }}</td>
+            </tr>
+            <tr class="history">
+                <td class="tablebody">Mobile Number:</td>
+                <td>{{ users_data[0]["mobile_number"] }}</td>
+            </tr>
+        </table></h4>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+<h4><table class="tablebody" style="width:auto; text-align: left">
+                    <tr>
+                        <td class="tablebody">First Name:</td>
+                        <td >{{ users_data[0]["first_name"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tablebody">Last Name:</td>
+                        <td>{{ users_data[0]["last_name"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tablebody">Username:</td>
+                        <td>{{ users_data[0]["username"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tablebody">Age:</td>
+                        <td>{{ users_data[0]["age"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tablebody">Email:</td>
+                        <td>{{ users_data[0]["email"] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tablebody">Mobile Number:</td>
+                        <td>{{ users_data[0]["mobile_number"] }}</td>
+                    </tr>
+                </table></h4>
